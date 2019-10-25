@@ -1,0 +1,20 @@
+{% extends "main_app/main_theme.html" %}
+{% block content %}
+  <div class="row">
+		{% for post in posts %}
+	    <div class="col s12 m6">
+	      <div class="card blue-grey darken-1">
+	        <div class="card-content white-text">
+	          <span class="card-title">{{ post.topic }}</span>
+			  <p>{{ post.title }}</p>
+			  <p>{{ post.date }}</p>
+			  <p>{{ post.content|safe }}</p>
+	        </div>
+	        <div class="card-action">
+	          <a href="#">Go</a>
+	        </div>
+	      </div>
+    	</div>
+	{% endfor %}
+  </div>
+{% endblock %}

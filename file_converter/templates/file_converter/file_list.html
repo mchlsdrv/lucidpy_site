@@ -1,0 +1,50 @@
+{% extends 'main_app/main_theme.html' %}
+
+{% block content %}
+<p>
+	<a href="{% url 'file_converter:upload_file' %}" class="btn btn-primary">Upload</a>
+</p>
+
+<table class="table mb-0">
+	<thead>
+		<tr>
+			<th>File Name</th>
+			<th>Data Description</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for data_file in files %}
+			<tr>
+				<td>{{ data_file.name }}</td>
+				<td>{{ data_file.data_description }}</td>
+				<td>
+					<a href="{{ data_file.file.url }}" class="btn btn-primary btn-sm" target="_blank">Download</a>
+				</td>					
+				<td>
+	
+					<a style="background-color: red; color: white" class="waves-effect waves-light btn modal-trigger" href="#delete_confirmation_modal">Delete</a>
+					</div>
+
+					<div id="delete_confirmation_modal" class="modal">
+						<div class="modal-content">
+							<h4>Are you sure you want to delete this file?</h4>
+						</div>
+
+						<div class="modal-footer">
+							<form method="post" action="{% url 'file_converter:delete_file' data_file.pk %}">
+								{% csrf_token %}
+								<button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete anyway</button>
+								<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+							</form>
+						</div>
+					</div>
+
+					<div id="delete_form">
+					</div>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

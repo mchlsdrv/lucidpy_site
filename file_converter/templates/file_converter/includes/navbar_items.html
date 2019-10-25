@@ -1,0 +1,10 @@
+<li><a href="/">Home</a></li>
+<li><a href="/forum">Forum</a></li>
+{% if user.is_authenticated %}
+	<li><a href="/apps">Apps</a></li>
+    <li>logged in as : <strong>{{user.username|title}}</strong></li>
+    <li><a href="/logout">Logout</a></li>
+{% else %}
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login">Login</a></li>
+{% endif %}

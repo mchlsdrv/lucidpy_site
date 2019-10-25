@@ -1,0 +1,14 @@
+{% extends 'main_app/main_theme.html' %}
+
+{% block content %}
+	<h2>Upload File</h2>
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="document">
+		<button type="submit">Upload File</button>
+	</form>
+	{% if saved_file_url %}
+		<p>Uploaded file: <a href="{{saved_file_url}}">{{saved_file_url}}</a></p>
+	{% endif %}
+
+{% endblock %}

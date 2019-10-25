@@ -1,0 +1,33 @@
+{% extends "main_app/main_theme.html" %}
+{% block content %}
+  <div class="row">
+  		<div class="col s12, m8, l8">
+  			<h3>{{current_post.title}}</h3>
+  			<p style="font-size: 70%">Published on {{current_post.date}}</p>
+  			{{current_post.content|safe}}
+  		</div>
+
+  		<div class="col s12 m4 l4">
+  			<ul class="collapsible popout">
+  				{% for post in sidebar_data %}
+  					{% if forloop.counter0 == current_post_index %}
+  						<li class="active">
+  							<div class="collapsible-header">{{post.title}}<br>(currently viewing)
+  							</div>
+  						</li>
+  					{% else %}
+  						<li>
+  							<div class="collapsible-header">{{post.title}}</div>
+  							<div class="collapsible-body">
+  								<p>
+  									<a href="/{{post.slug}}"><button class="btn waves-effect waves-light right-align" style="background-color: #900500; color: #F3B342">Go</button>
+  									</a>
+  								</p>
+  							</div>
+  						</li>
+  					{% endif %}
+  				{% endfor %}
+  			</ul>
+  		</div>
+  </div>
+{% endblock %}

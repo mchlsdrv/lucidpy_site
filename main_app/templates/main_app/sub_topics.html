@@ -1,0 +1,17 @@
+{% extends "main_app/main_theme.html" %}
+{% block content %}
+  <div class="row">
+		{% for sub_topic_key, fst_post_url in sub_topics_urls_dict.items %}
+		    <div class="col s12 m6 l4">
+	    		<a href="{{fst_post_url}}", style="color: #D4D3D3">
+		      		<div class="card hoverable blue-grey darken-1">
+		        		<div class="card-content">
+		          			<div class="card-title" style="color: #F3B342">{{sub_topic_key.name}}</div>
+		          			<p>{{sub_topic_key.summary}}</p>
+		        		</div>
+		      		</div>
+	      		</a>
+	    	</div>
+		{% endfor %}
+  </div>
+{% endblock %}

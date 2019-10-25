@@ -1,0 +1,16 @@
+{% extends "main_app/main_theme.html" %}
+{% block content %}
+  <div class="row">
+		{% for topic in topics %}
+	    <div class="col s12 m6 l4">
+    		<a href="{{topic.slug}}", style="color: #D4D3D3">
+	      		<div class="card hoverable blue-grey darken-1">
+	        		<div class="card-content">
+	          			<div class="card-title" style="color: #F3B342">{{ topic.name }}</div>
+	          			<p>{{ topic.summary }}</p>
+	        		</div>
+	      		</div>
+    	</div>
+	{% endfor %}
+  </div>
+{% endblock %}
