@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'main_app.apps.MainAppConfig',
     'file_converter.apps.FileConverterConfig',
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
     'tinymce',
     'crispy_forms',
     'django.contrib.admin',

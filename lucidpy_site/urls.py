@@ -22,8 +22,9 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('apps/', include('file_converter.urls')),
     path('blog/', include('blog.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    path('users/', include('users.urls')),
     path('admin/', admin.site.urls),
-    path('tinymce/', include('tinymce.urls'))
 ]
 
 if settings.DEBUG:

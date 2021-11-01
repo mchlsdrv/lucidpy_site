@@ -16,13 +16,9 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 
-app_name = 'main_app'
+app_name = 'blog'
 
 urlpatterns = [
 	path('', views.home, name='home'),
-    path('apps', include('file_converter.urls')),
-	path('register', views.register_request, name='register_request'),
-	path('login', views.login_request, name='login_request'),
-	path('logout', views.logout_request, name='logout_request'),
-    path('<slug>', views.single_slug, name='single_slug'),
+
 ]
